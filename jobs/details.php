@@ -160,12 +160,8 @@ if (isset($user) && $user['user_type']=='candidate') {
 				
 				<div>
 					<div class="s1">
-						
-					
-						
-						
 						<h6><?=safechar($DataCompany['compname']); ?></h6>
-						<a href="/employers/details.php?id=<?=$DataCompany['uid']; ?>">კომპანიის გვერდი</a>
+						<a href="/employers/details.php?id=<?=$DataCompany['uid']; ?>">Company page</a>
 					</div>
 				</div>
 				
@@ -650,13 +646,17 @@ if (isset($user) && $user['user_type']=='candidate') {
 			<div class="flexing">
 				
 				<div>
-					<img src="/jobs/images/y11.jpg"/>
+					<?php if (text_size($DataCompany['photo_addr'])>5): ?>
+						 <img class="pimg" src="/employers/images/<?=$DataCompany['photo_addr'];?>" alt="" >
+						 <?php else: ?>
+							<img class="pimg" src="/images/38e5d4bedd70b4111cef3927e32d8866.jpg" alt="">
+					<?php endif;?>	
 				</div>
 				
 				<div>
 					<div class="s1">
-						<h6>Medium</h6>
-						<a href="">View Company</a>
+						<h6><?=safechar($DataCompany['compname']); ?></h6>
+						<a href="/employers/details.php?id=<?=$DataCompany['uid']; ?>">View page</a>
 					</div>
 				</div>
 				
@@ -670,7 +670,7 @@ if (isset($user) && $user['user_type']=='candidate') {
 
 				
 				<div class="divi_3z1">
-					<a href="">ვაკანსიების ნახვა</a>
+					<a href="/employers/details.php?id=<?=$DataCompany['uid']; ?>">View posts</a>
 				</div>
 
 

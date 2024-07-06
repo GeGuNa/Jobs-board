@@ -543,8 +543,8 @@ if (text_size($Data['sector'])>0) {
 <?php
 
 
-$KdataoFVips = $pdo->query("select * from hr_job where company_id = ? order by jid desc",[
-	$Data['uid']
+$KdataoFVips = $pdo->query("select * from hr_job where ordinary_time > ? and company_id = ? order by RANDOM() LIMIT 5",[
+	$Time,$Data['uid']
 ]);
 
 while($fetch_Vips = $KdataoFVips->fetch()):
@@ -620,7 +620,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 				<div>	
 					
-					<button class="default-btn btnq1_zzjoply1">Send</button>
+					<a href="/jobs/details.php?id=<?=($fetch_Vips['jid']);?>" class="default-btn">View</a>
 					
 				</div>
 				
