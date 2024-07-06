@@ -714,7 +714,7 @@ if (isset($user) && $user['user_type']=='candidate') {
 <?php
 
 
-$KdataoFVips = $pdo->query("select * from hr_job order by random() desc limit 3");
+$KdataoFVips = $pdo->query("select * from hr_job  where ordinary_time > ?  order by random() desc limit 3", [$Time]);
 
 while($fetch_Vips = $KdataoFVips->fetch()):
 
@@ -789,7 +789,9 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 				<div>	
 					
-					<button class="default-btn btnq1_zzjoply1">გაგზავნა</button>
+					
+                  <a href="details.php?id=<?=($fetch_Vips['jid']);?>" class="default-btn">View</a>
+             
 					
 				</div>
 				

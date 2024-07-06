@@ -166,12 +166,12 @@ $i=0;
 
 $Q_Page = new Pagination();
 
-$kq_c1 = $pdo->query("select * from hr_job")->rowCount();
+$kq_c1 = $pdo->query("select * from hr_job where ordinary_time > ?", [$Time])->rowCount();
 
 $ttlq = $Q_Page->calculation($kq_c1, $params['page']);
 
-$qweqwe = $pdo->query("SELECT * FROM hr_job ORDER BY jid DESC LIMIT ? OFFSET ?", 
-	[$params['page'], $ttlq]
+$qweqwe = $pdo->query("SELECT * FROM hr_job where ordinary_time > ? ORDER BY jid DESC LIMIT ? OFFSET ?", 
+	[$Time, $params['page'], $ttlq]
 );
 		
 
@@ -243,7 +243,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch['company_id
 											
 											
 											
-												<a href="details.php?id=<?=($fetch['jid']);?>" class="default-btn">ნახვა</a>
+												<a href="details.php?id=<?=($fetch['jid']);?>" class="default-btn">View</a>
 											</div>										
 						
 						

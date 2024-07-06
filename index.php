@@ -427,8 +427,24 @@ $kq_c1 = $pdo->query("select * from hr_user  where user_type = ? ", ['company'])
 
 
 
-$KdataoFVips = $pdo->query("select * from hr_job where jtype = ? and ordinary_time > ? order by jid desc",['ordinary', $Time	]);
-while($fetch_Vips = $KdataoFVips->fetch()):
+
+$i=0;
+
+$Q_Page = new Pagination();
+
+$kq_c1 = $pdo->query("select * from hr_job  where ordinary_time > ?", [$Time])->rowCount();
+
+$ttlq = $Q_Page->calculation($kq_c1, $params['page']);
+
+$qweqwe_ord1z = $pdo->query("SELECT * FROM hr_job where ordinary_time > ? ORDER BY jid DESC LIMIT ? OFFSET ?", 
+	[$Time, $params['page'], $ttlq]
+);
+		
+
+
+
+
+while($fetch_Vips = $qweqwe_ord1z->fetch()):
 
 
 $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['company_id']])->fetch();
@@ -518,7 +534,13 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 					
 					
-	<?php endwhile;?>
+	<?php 
+   
+   $i++;
+   
+   endwhile;
+   
+   ?>
 		
 	
 	
@@ -526,19 +548,28 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 	
 	
 	
-	
+
 <div class="col-12">
-									<div class="pagination-area">
-										<span class="page-numbers current" aria-current="page">1</span>
-										<a href="#" class="page-numbers">2</a>
-										<a href="#" class="page-numbers">3</a>
+<div class="pagination-area">
+
+
+<?
+$Q_Page->setPage("/jobs/","");
+$Q_Page->setTotal($kq_c1);
+$Q_Page->setPerPage($params['page']);
+
+$Q_Page->rendering();	
+
+
+?>						
 										
-										<a href="#" class="next page-numbers">
-											>
-										</a>
-									</div>
-								</div>	
-	
+				
+
+
+
+</div>
+</div>	
+
 	
 	
 	
