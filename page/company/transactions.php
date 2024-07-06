@@ -28,7 +28,7 @@
 <div class="pheadr1">
 	
 <div class="llkqk_22">
-		<h2 style="font-size: 30px;"> ტრანზაქციები </h2>
+		<h2 style="font-size: 30px;"> Transacations </h2>
 </div>
 
 </div>	
@@ -148,19 +148,16 @@
 	
 				
 	
-			
-		<div class="col-12">
-									<div class="pagination-area">
-										<span class="page-numbers current" aria-current="page">1</span>
-										<a href="#" class="page-numbers">2</a>
-										<a href="#" class="page-numbers">3</a>
-										
-										<a href="#" class="next page-numbers">
-											&gt;
-										</a>
-									</div>
-								</div>
-		
+
+<div class="col-12">
+<div class="pagination-area">
+
+
+
+
+</div>
+</div>
+
 					
 			
 			</div>

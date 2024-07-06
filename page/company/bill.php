@@ -31,7 +31,7 @@
 <div class="pheadr1">
 	
 <div class="llkqk_22">
-		<h2 style="font-size: 30px;"> თანხა ბალანსზე </h2>
+		<h2 style="font-size: 30px;"> Balance </h2>
 </div>
 
 </div>	
@@ -62,7 +62,7 @@
 			<div class="card rounded-3 mb-4 mm_top251">
 				
 					<div class="card-header">
-						<h4>თანხის შემოტანა</h4>
+						<h4>Filling the balance</h4>
 					</div>
 					
 					
@@ -71,24 +71,24 @@
 							
 							<div class="eportledd mb-4">
 								<div class="form-check ps-0">
-									<p>თქვენი ბალანსი <b>15.05 ლარი</b></p>
+									<p>Your balance <b>00.00 GEL</b></p>
 								</div>
 								
 							</div>
 							
 							
 							<form class="mb-3">
-								<h6>მიუთითეთ სასურველი თანხა</h6>
-								<input type="text" class="form-control mb-2" placeholder="*********">
-								<button class="default-btn">შემდეგი</button>
+								<h6>Please enter how much do you want to take here?</h6>
+								<input type="text" class="form-control mb-2" placeholder="How much">
+								<button class="default-btn">Next step</button>
 							</form>
 							
 							
 							<div class="">
 								
-							<div>ბალანსის შევსებამდე გთხოვთ წაიკითხეთ აუცილებლად !!!</div>
+							<div>Please before filling the balance read the rules !!!</div>
 							<div> 
-								<a href="./" class="rules_1">წესები</a></div>
+								<a href="#" class="rules_1">Our Rules</a></div>
 							
 								
 								
