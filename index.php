@@ -219,7 +219,10 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 									</div>  
 									
 									
-									<div><i class="fa-solid fa-briefcase me-1"></i> <?=$jjj_experience[safechar($fetch_Vips['experience'])]; ?> </div>
+						
+                           
+                           
+                           
 								</div>	
 										
 							</div>
@@ -247,7 +250,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 						<div class="jfql123zqflgp1">
 							
 							<div>	
-									<button>Apply now</button>
+									<a href="/jobs/details.php?id=<?=($fetch_Vips['jid']);?>" class="default-btn">View</a>
 							 </div>
 							
 								<div class="text-truncate talend1">
@@ -350,7 +353,7 @@ $kq_c1 = $pdo->query("select * from hr_user  where user_type = ? ", ['company'])
                      <? if (isset($user) && $user['user_type']=="candidate"): ?>   
 								
 								<div class="qq_ll_zkqf12">
-									<a href="/employers/cv.php?id=<?=$dEmployers['uid'];?>">Cv გაგზავნა</a>
+									<a href="/employers/cv.php?id=<?=$dEmployers['uid'];?>">Send cv</a>
 								</div>
                       <? endif; ?>  
                       
@@ -517,7 +520,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 				<div>	
 					
-					<button class="default-btn btnq1_zzjoply1">Send</button>
+					<a href="/jobs/details.php?id=<?=($fetch_Vips['jid']);?>" class="default-btn">View</a>
 					
 				</div>
 				
