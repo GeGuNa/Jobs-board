@@ -47,8 +47,8 @@
          
      
                   <select  tabindex="-1" style="max-width: 100% !important;">
-                             <option value="">All Categories</option>
-                           <option class="level-0" value="54">Advertising</option>
+                        <option value="">All Categories</option>
+                        <option class="level-0" value="54">Advertising</option>
                         <option class="level-0" value="55">Application</option>
                         <option class="level-0" value="56">Customer</option>
                         <option class="level-0" value="58">Design</option>
@@ -165,7 +165,7 @@
 <?php
 
 
-$KdataoFVips = $pdo->query("select * from hr_job where jtype = ?",['vip']);
+$KdataoFVips = $pdo->query("select * from hr_job where vip_time > ?",[$Time]);
 while($fetch_Vips = $KdataoFVips->fetch()):
 
 
@@ -173,13 +173,11 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 
 //alter table hr_job add vip_time bigint default '0';
 //alter table hr_job add ordinary_time bigint default '0';
+//alter table hr_user add package_type varchar(100) default 'none';
 ?>		
-		
-		
-		
 
 		
-				
+		
 				<div class="main_di1">
 				
 				
@@ -428,7 +426,8 @@ $kq_c1 = $pdo->query("select * from hr_user  where user_type = ? ", ['company'])
 <?php
 
 
-$KdataoFVips = $pdo->query("select * from hr_job where jtype = ? order by jid desc",['ordinary']);
+
+$KdataoFVips = $pdo->query("select * from hr_job where jtype = ? and ordinary_time > ? order by jid desc",['ordinary', $Time	]);
 while($fetch_Vips = $KdataoFVips->fetch()):
 
 

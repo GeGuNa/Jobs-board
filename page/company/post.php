@@ -25,11 +25,31 @@
 
 if (isset($_POST['Posting'])) {
 
+$packge_type = 0;
+$stanadr_time = $time + (60*24*31);
+
+
+if ($user['package_type']=='starter') {
+   $package_time_vip = 0;
+   $packge_type = 1;
+}
+
+if ($user['package_type']=='premium') {
+  $package_time_vip = $time + (60*24*21);
+  $packge_type = 1; 
+}
+
+
+
+if ($user['package_type']=='premium_plus'){ 
+   $package_time_vip = $time + (60*24*31);
+   $packge_type = 1;
+}
 
 $title = my_esc($_POST['title']);
 $desc = my_esc($_POST['desc']);
 
-$required1 = my_esc($_POST['required']); //required skills
+//$required1 = my_esc($_POST['required']); //required skills
 
 $sector = my_esc($_POST['sector']); // job category
 $jobtype1 = my_esc($_POST['job_Typq1']); //job type =  freelance/remote etc
@@ -69,7 +89,7 @@ if (!in_array($experience, ['1','2','3','4','5']))Error('უუპს');
 if (!in_array($genderofjob, ['1','2','3']))Error('უუპს');
 if (!in_array($qualification_1, ['1','2','3','4','5','6']))Error('უუპს');
 
-
+if ($packge_type == 0)Error('You cannot post a post cause you never bought a package');
 
 
 
@@ -96,7 +116,7 @@ $detailed_qualifications = my_esc($_POST['detailed_qualifications']);
 
 $video_url = my_esc($_POST['video_url']);
 
-$jtype = my_esc($_POST['jtype']);
+$jtype = "ordinary";
 
 
 
@@ -117,8 +137,13 @@ hr=# select uid,pemail,password,user_type,sector from hr_user;
 
 
 
-$pdo->query("insert into hr_job (video_url,benefits, detailed_qualifications, we_offer, responsibilities, vacancy_direct_url,email, languages, phnnumber, title, description, category_id, job_type, salary_type, min_price, max_price, jcity, jcountry, jstate, experience, gendert, qualifications, company_id, unixtime, jtype) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ",
-[$video_url, $benefits, $detailed_qualifications, $we_offer, $responsibilities, $e_directurl, $E_Mail2, $E_languages, $E_phone_nu, $title, $desc, $sector, $jobtype1, $salary_type, $min_price, $max_price, $city, $country, $state, $experience, $genderofjob, $qualification_1, $user['uid'], $time, $jtype]);
+$pdo->query("insert into hr_job (video_url,benefits, detailed_qualifications, we_offer, responsibilities, vacancy_direct_url,email, languages, phnnumber, title, description, category_id, job_type, salary_type, min_price, max_price, jcity, jcountry, jstate, experience, gendert, qualifications, company_id, unixtime, jtype, vip_time, ordinary_time) 
+values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) 
+",
+[$video_url, $benefits, $detailed_qualifications, $we_offer, $responsibilities, $e_directurl, $E_Mail2, $E_languages, $E_phone_nu, $title, $desc, $sector, $jobtype1, $salary_type, $min_price, $max_price, $city, $country, $state, $experience, $genderofjob, $qualification_1, $user['uid'], $time, $jtype,
+$package_time_vip, $stanadr_time
+
+]);
 
 
 header("Location: ?");
@@ -272,8 +297,8 @@ exit;
 	<!-- -->
 	
 	
-	
-							<div class="div_50 mrbottom20">
+		<div class="row" style="width:100%;">
+               <div class="col-lg-6 mrbottom20">
 							
 			
 							<label>Email </label>                        
@@ -284,7 +309,7 @@ exit;
 						
 						
 						
-						<div class="div_50 mrbottom20">
+						<div class="col-lg-6 mrbottom20">
 							
 			
 							<label>Phone number (not necessary) </label>                        
@@ -294,7 +319,7 @@ exit;
 						</div>
 	
 	
-	
+				</div>
 	
 	<!-- -->					
 						
@@ -372,15 +397,7 @@ exit;
 				</div>	
 				
 				
-					<div class="div_100 mrbottom20">
-						<label>Vacancy type</label>                        
-										<select name="jtype" required>
-											<option value="ordinary">Ordinary</option>
-											<option value="vip">Vip</option>
-										</select>
-						
-					</div>
-				
+			
 						<div class="div_100 mrbottom20">
 							
 							<div class="row">

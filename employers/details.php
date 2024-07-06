@@ -82,7 +82,7 @@ if (text_size($Data['sector'])>0) {
 <div class="pheadr1">
 	
 	<div class="llkqk_22">
-			<h2> დამსაქმლების პროფილი </h2>
+			<h2> Employers profile </h2>
 	</div>
 
 </div>	
@@ -293,7 +293,7 @@ if (text_size($Data['sector'])>0) {
 				<div class="FormS">
 				
 				<div class="FormS_breakingBottom">
-					<h4>გაზიარება</h4>
+					<h4>Share</h4>
 				</div>
 				
 					<div class="rest">
@@ -386,16 +386,41 @@ if (text_size($Data['sector'])>0) {
 				<div class="FormS">
 				
 				<div class="FormS_breakingBottom">
-					<h4>კომპანიის შესახებ</h4>
+					<h4>About company</h4>
 				</div>
 				
 	
 		<div class="frm_flex1_z">
-				<div> <div class="f_l_img1flexingWithgrayBorder"><i class="fa-solid fa-calendar-days"></i></div>  <?=date("M d, Y", $Data['unixtime']);?> </div>
-				<div> <div class="f_l_img1flexingWithgrayBorder"> <i class="fa-solid fa-briefcase"></i></div> <a href=""><?=$hmanyjobs;?> ვაკანსია</a> </div>
+         
+         
+            <? if (strlen($Data['founded'])>0) { ?>
+               <div>
+                  <div class="f_l_img1flexingWithgrayBorder"> 
+                     <i class="fa-regular fa-calendar"></i>
+                  </div> 
+                  Founded in 
+                  <?=safechar($Data['founded']);?>  
+               </div>
+            <? } ?>
+         
+         
+	
+            
+            
+				<div> <div class="f_l_img1flexingWithgrayBorder"> <i class="fa-solid fa-briefcase"></i></div> <a href=""><?=$hmanyjobs;?> Posts</a> </div>
+            
+            
+               <? if (strlen($Data['city'])>0) { ?>
 				<div> <div class="f_l_img1flexingWithgrayBorder"><i class="fa-solid fa-city"></i></div> <?=safechar($Data['city']);?> </div>
-				<div><div class="f_l_img1flexingWithgrayBorder"> <i class="fa-regular fa-calendar"></i></div> <?=safechar($Data['founded']);?> წელს </div>
-		</div>
+               <? } ?> 
+      
+      
+      <!--
+      			<div> <div class="f_l_img1flexingWithgrayBorder"><i class="fa-solid fa-calendar-days"></i></div>  <?=date("M d, Y", $Data['unixtime']);?> </div>     
+          -->  
+
+            
+         </div>
 	
 	</div>
 	
@@ -595,7 +620,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 				<div>	
 					
-					<button class="default-btn btnq1_zzjoply1">გაგზავნა</button>
+					<button class="default-btn btnq1_zzjoply1">Send</button>
 					
 				</div>
 				
