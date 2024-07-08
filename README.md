@@ -6,7 +6,7 @@ Note please this script is still under preparation there's things that isn't dev
 
 #  remember this script you cannot sell but you can distribute,modify and do whatever you wish or want but not sell it that'd be not good )) 
 
-# what it lacks ?
+# what does it lacks ?
 Nothing special its almost done but still not fully
 
 #used tech  
