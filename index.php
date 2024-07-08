@@ -456,7 +456,7 @@ while($fetch_Vips = $qweqwe_ord1z->fetch()):
 $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['company_id']])->fetch();
 
 
-
+ 
 
 if ($fetch_Vips['vip_time']>$Time)$cs_1_style = '/*jvips1Z*/';
 else $cs_1_style = '';
