@@ -60,14 +60,14 @@ if (isset($user) && $user['user_type']=='candidate') {
 <div class="pheadr1">
 	
 	<div class="llkqk_22">
-			<h2> Job Listing </h2>
+			<h2> Jobs </h2>
 	</div>
 
 </div>	
 	
 
 
-<div class="ppt100">
+<div class="">
 
 
 
@@ -79,12 +79,19 @@ if (isset($user) && $user['user_type']=='candidate') {
 <div class="row">
 	
 	
+   
+ <div class="col-lg-12" style="margin-top: 30px;">
+   <div class="ttlq100_text">
+			<h4>Search by category</h4>	
+		</div>
+ </div>  
+   
 	
 	<div class="col-lg-12">
 
 
  
-				<form class="srjob mm_j_bt120 cz2">
+				<form class="srjob mm_j_bt120 cz2" style="margin-bottom: 30px;">
 							<div class="row for_mobflgap">
 								
 								<div class="col-lg-3">
@@ -176,90 +183,57 @@ $qweqwe = $pdo->query("SELECT * FROM hr_job where ordinary_time > ? ORDER BY jid
 		
 
 
-while($fetch = $qweqwe->fetch()):
+while($fetch_Vips = $qweqwe->fetch()):
 
 
-$CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch['company_id']])->fetch();
+$CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['company_id']])->fetch();
 
 
+
+if ($fetch_Vips['vip_time']>$Time)$cs_1_style = '/*jvips1Z*/';
+else $cs_1_style = '';
 ?>	
 	
 
 
+			<div
+      
+ 
+      
+       class="<?=$cs_1_style;?> flj_ob__2z flxmrbo1 mdp2 roundedq1zflj bz2ordezr borderqzu712bnq">
+		
 	
-
-	
-		<div class="col-12">
-				<div class="job_1">
-					<div class="row align-items-center">
-						
-						<div class="col-lg-2">
-					
-					<a href="/employers/details.php?id=<?=$CompID['uid'];?>" class="hot-jobs-img">
-					
-					
-					<?php if (text_size($CompID['photo_addr'])>5): ?>
-						 <img class="pimg" src="/employers/images/<?=$CompID['photo_addr'];?>" alt="" >
-						 <?php else: ?>
-							<img class="pimg" src="/images/38e5d4bedd70b4111cef3927e32d8866.jpg" alt="" style="max-width: 132px;">
-					<?php endif;?>
-                        
-					</a>
-					
-					
-						</div>
-											
-											
-						<div class="col-lg-7">
-												<div class="hot-jobs-content">
-													<h3><a href="details.php?id=<?=($fetch['jid']);?>"><?=safechar($fetch['title']);?></a></h3>
-												
-
-										<ul>
-											<li><?=safechar($fetch['jcountry']);?> <?=safechar($fetch['jcity']);?> </li>
-										
-											<li> <?=$jjj_type[safechar($fetch['job_type'])]; ?>  </li>
-										
-											
-											
-										</ul>
-
-
-
-												</div>
-											</div>
-											
-											
-											<div class="col-lg-3">
-											
-											
-		<?php 
-
+			<div class="jj_bjo1">
 			
-				?>
-												
-
+				
+					<div> 
 					
-											
-											
-											
-												<a href="details.php?id=<?=($fetch['jid']);?>" class="default-btn">View</a>
-											</div>										
-						
-						
-						
-						
-						
-						
+								<div class="jj_bjo1z2gaping">
+										<div>
+										
+										
+					    <?php if (text_size($CompID['photo_addr'])>5): ?>
+							<img class="pimg" src="/employers/images/<?=$CompID['photo_addr'];?>" alt="" >
+						 <?php else: ?>
+							<img class="pimg" src="/images/38e5d4bedd70b4111cef3927e32d8866.jpg" alt="">
+						<?php endif;?>
+										
+										
+										
+										
+										</div>
+										<div style="cursor:pointer;" onclick="window.location='/jobs/details.php?id=<?=$fetch_Vips['jid'];?>'">
+											<h2 ><?=safechar($fetch_Vips['title']);?></h2>
+											<p><?=safechar($fetch_Vips['jcity']);?></p>
+										</div>
+								</div>
+					
 					</div>
-
-					
-					
-					
-					
-					
-					
-					
+				
+				
+				<div class="mb_hiding"> 
+						<div class="t1end1"><h2 style="color: #0f890f !important;" class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
+						<div><p class="pjtext"><?=whenTm($fetch_Vips['unixtime']);?></p></div>
 				</div>
 				
 				
@@ -267,8 +241,45 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch['company_id
 				
 				
 			</div>
-	
-	
+									
+							
+			<div>
+				
+			</div>					
+						
+			
+		<!-- -->
+			
+			<div class="jj_b_apply">
+			
+				<div>
+					<div class="kk_gapingfordesc1">
+										<div class="TpqQrrQ13zy1"><?=$jjj_type[safechar($fetch_Vips['job_type'])]; ?> </div>
+					</div>
+				</div>
+				
+				<div class="for_mp_pho1s">
+						<div><h2 style="text-align:center;color: #0f890f !important;" class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
+						<div><p class="pjtext"><?=whenTm($fetch_Vips['unixtime']);?></p></div>
+				</div>
+				
+				<div>	
+					
+					<a href="/jobs/details.php?id=<?=($fetch_Vips['jid']);?>" class="default-btn">View</a>
+					
+				</div>
+				
+			</div>
+		
+		
+		<!-- -->	
+						
+						
+						
+						
+		</div>
+					
+				
 	
 	
 	

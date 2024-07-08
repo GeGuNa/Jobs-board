@@ -5727,3 +5727,19 @@ color: #14A077 !important;
     word-break: break-all;
     word-wrap: break-word;
 }
+
+
+.jvips1Z {
+position:relative;
+}
+
+.jvips1Z::after {
+content:'Vip';
+position:absolute;
+left:0;
+top:0;
+z-index:99999;
+transform: rotateZ(-0.25turn);
+background:#14A077;
+width:150px;
+}

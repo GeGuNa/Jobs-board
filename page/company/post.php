@@ -77,7 +77,8 @@ if (!in_array($experience, ['1','2','3','4','5']))Error('უუპს');
 if (!in_array($genderofjob, ['1','2','3']))Error('უუპს');
 if (!in_array($qualification_1, ['1','2','3','4','5','6']))Error('უუპს');
 
-if ($packge_type == 0)Error('You cannot post a post cause you never bought a package');
+
+//if ($packge_type == 0)Error('You cannot post a post cause you never bought a package');
 
 
 

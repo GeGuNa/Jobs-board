@@ -214,7 +214,10 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 									
 									<div>
 									<i class="fa-solid fa-sack-dollar me-1"></i>  
-									<?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?>
+								<span style="color: #0f890f !important;">
+                           <?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?>
+                        
+                        </span>	
 									
 									</div>  
 									
@@ -445,7 +448,7 @@ $qweqwe_ord1z = $pdo->query("SELECT * FROM hr_job where ordinary_time > ? ORDER 
 		
 
 
-
+$cs_1_style = '';
 
 while($fetch_Vips = $qweqwe_ord1z->fetch()):
 
@@ -453,9 +456,18 @@ while($fetch_Vips = $qweqwe_ord1z->fetch()):
 $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['company_id']])->fetch();
 
 
+
+
+if ($fetch_Vips['vip_time']>$Time)$cs_1_style = '/*jvips1Z*/';
+else $cs_1_style = '';
+
 ?>		
 	
-		<div class="flj_ob__2z flxmrbo1 mdp2 roundedq1zflj bz2ordezr borderqzu712bnq">
+		<div
+      
+ 
+      
+       class="<?=$cs_1_style;?> flj_ob__2z flxmrbo1 mdp2 roundedq1zflj bz2ordezr borderqzu712bnq">
 		
 	
 			<div class="jj_bjo1">
@@ -487,7 +499,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				
 				
 				<div class="mb_hiding"> 
-						<div class="t1end1"><h2 class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
+						<div class="t1end1"><h2 style="color: #0f890f !important;" class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
 						<div><p class="pjtext"><?=whenTm($fetch_Vips['unixtime']);?></p></div>
 				</div>
 				
@@ -514,7 +526,7 @@ $CompID = $pdo->query("select * from hr_user where uid = ?", [$fetch_Vips['compa
 				</div>
 				
 				<div class="for_mp_pho1s">
-						<div><h2 style="text-align:center;" class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
+						<div><h2 style="text-align:center;color: #0f890f !important;" class="ph2"><?=safechar($fetch_Vips['min_price']);?> - <?=safechar($fetch_Vips['max_price']);?> Gel</h2></div>
 						<div><p class="pjtext"><?=whenTm($fetch_Vips['unixtime']);?></p></div>
 				</div>
 				
