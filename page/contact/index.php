@@ -37,7 +37,9 @@
 
 		<div class="widget" style="">
 			
-			<div class="section-heading"><h2 class="h1">Benefits of working with us</h2><p class="m-0 w-lg-60 w-md-80">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+			<div class="section-heading">
+            <h2 class="h1">Contact us</h2>
+         </div>
 			
 			<form><div class="row gy-4">
 				
@@ -108,7 +110,7 @@
 
 <div class="d-flex align-items-center mb-3"><div class="icon-sm bg-primary rounded-circle text-white"><i class="fas fa-phone-alt"></i></div><div class="col ps-3">+01 095 095 9568</div></div>
 
-<div class="d-flex mb-3"><div class="icon-sm bg-primary rounded-circle text-white"><i class="fas fa-map-signs"></i></div><div class="col ps-3">153 Williamson Plaza, 09514 United States</div></div>	
+<div class="d-flex mb-3" style=""><div class="icon-sm bg-primary rounded-circle text-white"><i class="fas fa-map-signs"></i></div><div class="col ps-3" style="align-self: center;">Georgia, Tbilisi</div></div>	
 	
 	
 <h6 class="pt-5 pb-2">Follow Us</h6>
