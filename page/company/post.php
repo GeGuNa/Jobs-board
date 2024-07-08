@@ -21,30 +21,18 @@
 
 <?php
 
-
+//$time = time();
 
 if (isset($_POST['Posting'])) {
 
 $packge_type = 0;
-$stanadr_time = $time + (60*24*31);
+$stanadr_time = $Time + (3600*24*31);
+
+if ($user['package_type']=='starter') { $package_time_vip = 0; $packge_type = 0; }
+if ($user['package_type']=='premium') { $package_time_vip = $Time + (3600*24*10);   $packge_type = 1;  }
+if ($user['package_type']=='premium_plus'){ $package_time_vip = $Time + (3600*24*31);  $packge_type = 2; }
 
 
-if ($user['package_type']=='starter') {
-   $package_time_vip = 0;
-   $packge_type = 1;
-}
-
-if ($user['package_type']=='premium') {
-  $package_time_vip = $time + (60*24*21);
-  $packge_type = 1; 
-}
-
-
-
-if ($user['package_type']=='premium_plus'){ 
-   $package_time_vip = $time + (60*24*31);
-   $packge_type = 1;
-}
 
 $title = my_esc($_POST['title']);
 $desc = my_esc($_POST['desc']);

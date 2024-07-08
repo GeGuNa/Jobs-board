@@ -51,7 +51,10 @@ if (!$user) {
 	header('Location: /index.php');
 	exit;
 	
-}
+} /*else {
+   echo $user['package_type']."<br/>";
+   echo date('d M Y',1723124941);
+   }*/
 
 $usojbid = new user($user['uid']);
 
